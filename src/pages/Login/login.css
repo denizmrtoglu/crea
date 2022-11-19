@@ -1,0 +1,16 @@
+.login-form {
+  max-width: 300px;
+  margin: auto;
+  width: 50%;
+  padding: 10px;
+  text-align: center;
+}
+.login-form-button {
+  width: 100%;
+}
+.form-logo {
+  margin-bottom: 2em;
+}
+.form-error {
+  margin-bottom: 2em;
+}

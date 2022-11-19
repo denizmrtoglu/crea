@@ -1,26 +1,46 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Login from "./pages/Login/Login";
+import store from "./store";
+import { Provider } from "react-redux";
+import ProtectedRoute from "./routes/ProtectedRoute";
+import PrivateRoute from "./routes/PrivateRoute";
+import Home from "./pages/Home/Home";
+import Product from "./pages/Product/Product";
 
-function App() {
+export type AppDispatch = typeof store.dispatch;
+
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Provider store={store}>
+      <Router>
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <PrivateRoute>
+                <Home />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/login"
+            element={
+              <ProtectedRoute>
+                <Login />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/product"
+            element={
+              <PrivateRoute>
+                <Product />
+              </PrivateRoute>
+            }
+          />
+        </Routes>
+      </Router>
+    </Provider>
   );
 }
-
-export default App;

@@ -1,0 +1,11 @@
+.Review {
+  font-weight: 400;
+  font-size: 11px;
+  line-height: 16px;
+  color: var(--hb-legacy-black-70);
+  display: flex;
+  align-items: center;
+}
+.Star {
+  margin-right: 2px;
+}

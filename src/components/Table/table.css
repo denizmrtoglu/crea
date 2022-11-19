@@ -1,0 +1,7 @@
+.image-row {
+  width: 120px;
+  height: 80px;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
